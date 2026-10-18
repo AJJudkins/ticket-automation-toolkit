@@ -47,3 +47,14 @@ def test_cli_report(tmp_path):
     out = tmp_path / "r.html"
     assert main(["data/sample_tickets.csv", "--now", "2026-01-12T12:00", "--out", str(out)]) == 0
     assert "Weekly Ticket Report" in out.read_text()
+
+
+def test_cli_output_guards(tmp_path):
+    from ticketkit.cli import main
+    src = "data/sample_tickets.csv"
+    out = tmp_path / "r.md"
+    assert main([src, "--now", "2026-01-12T12:00", "--out", str(out)]) == 0
+    assert main([src, "--now", "2026-01-12T12:00", "--out", str(out)]) == 2  # no silent overwrite
+    assert main([src, "--now", "2026-01-12T12:00", "--out", str(out), "--force"]) == 0
+    assert main([src, "--out", str(tmp_path / "r.txt")]) == 2
+    assert main(["data/nope.csv"]) == 2

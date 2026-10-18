@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from datetime import datetime
 
@@ -15,7 +16,14 @@ def main(argv=None) -> int:
     p.add_argument("input", help=".csv or .json tickets")
     p.add_argument("--now", help="reference time (ISO); default is current time")
     p.add_argument("--out", help="output file (.md or .html); default prints Markdown")
+    p.add_argument("--force", action="store_true", help="overwrite --out if it already exists")
     a = p.parse_args(argv)
+    if a.out and not a.out.lower().endswith((".md", ".html")):
+        print("error: --out must end in .md or .html", file=sys.stderr)
+        return 2
+    if a.out and os.path.exists(a.out) and not a.force:
+        print(f"error: {a.out} exists (use --force to overwrite)", file=sys.stderr)
+        return 2
     try:
         now = datetime.fromisoformat(a.now) if a.now else datetime.now()
         rows = process(load_tickets(a.input), now)

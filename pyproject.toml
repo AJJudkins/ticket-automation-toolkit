@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ticket-automation-toolkit"
+version = "0.2.0"
+description = "Route simulated IT tickets, flag SLA risks and write a weekly report."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+ticketkit = "ticketkit.cli:main"
+
+[tool.setuptools]
+packages = ["ticketkit"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

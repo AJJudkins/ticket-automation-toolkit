@@ -1,5 +1,7 @@
 # Ticket Automation Toolkit
 
+[![CI](https://github.com/AJJudkins/ticket-automation-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/AJJudkins/ticket-automation-toolkit/actions/workflows/ci.yml)
+
 A small Python tool that ingests IT support tickets from CSV or JSON, classifies and routes them with keyword rules, flags SLA breach risk, and generates a weekly Markdown or HTML report.
 
 > **All data is simulated.** The sample tickets in `data/` are made up. No real tickets, employer, or customer data are included, and no ticketing system is connected.
@@ -55,6 +57,18 @@ Excerpt of `data/sample_report.md`:
 
 ## Limitations
 Keyword matching only (no ML); no live ticketing integration; the HTML report is the Markdown in a `<pre>` block.
+
+## Hardening notes
+- The tool only reads a local CSV/JSON file and writes a local report; it connects to no ticketing system.
+- `--out` must end in `.md` or `.html` and refuses to overwrite an existing file unless `--force` is given; input errors exit with code 2.
+- Console script after `pip install -e .`: `ticketkit data/sample_tickets.csv --now 2026-01-12T12:00`.
+
+## Security and testing status
+
+- **Safety:** offline: reads a local ticket file, writes only the report path you give (never overwriting without `--force`); no ticketing system or credentials are involved.
+- **Tested:** ingestion, routing/SLA rules, report output and CLI guards using made-up sample tickets.
+- **Not tested:** real ServiceNow/Jira exports or APIs (no integration exists), large ticket volumes, and time zones (timestamps are naive).
+- See [SECURITY.md](SECURITY.md).
 
 ## License
 MIT
