@@ -1,0 +1,21 @@
+id,created,priority,status,summary,description
+TKT-1001,2026-01-12T02:00,P4,open,VPN keeps disconnecting,Remote user VPN drops every 10 minutes
+TKT-1002,2026-01-11T06:00,P4,closed,Locked out after password reset,MFA prompt failing
+TKT-1003,2026-01-12T09:00,P4,open,Laptop battery swelling,"Battery bulging, needs replacement"
+TKT-1004,2026-01-09T04:00,P3,open,Install design software,Need license and install
+TKT-1005,2026-01-12T02:00,P3,closed,Wifi slow in conference room,High latency on wifi
+TKT-1006,2026-01-10T10:00,P2,open,Printer offline,Printer on floor 2 not responding
+TKT-1007,2026-01-12T06:00,P4,closed,Request new monitor,Second screen for desk
+TKT-1008,2026-01-12T11:00,P1,open,DNS not resolving internal site,"Users cannot reach intranet, dns errors"
+TKT-1009,2026-01-12T11:00,P3,open,Application crash on startup,Crash after update
+TKT-1010,2026-01-11T16:00,P3,closed,Question about parking,General question
+TKT-1011,2026-01-10T10:00,P3,closed,VPN keeps disconnecting,Remote user VPN drops every 10 minutes
+TKT-1012,2026-01-12T06:00,P3,open,Locked out after password reset,MFA prompt failing
+TKT-1013,2026-01-12T11:00,P2,closed,Laptop battery swelling,"Battery bulging, needs replacement"
+TKT-1014,2026-01-12T02:00,P3,closed,Install design software,Need license and install
+TKT-1015,2026-01-11T16:00,P3,closed,Wifi slow in conference room,High latency on wifi
+TKT-1016,2026-01-11T06:00,P4,closed,Printer offline,Printer on floor 2 not responding
+TKT-1017,2026-01-12T02:00,P3,open,Request new monitor,Second screen for desk
+TKT-1018,2026-01-11T16:00,P4,open,DNS not resolving internal site,"Users cannot reach intranet, dns errors"
+TKT-1019,2026-01-11T06:00,P4,open,Application crash on startup,Crash after update
+TKT-1020,2026-01-12T02:00,P4,open,Question about parking,General question
